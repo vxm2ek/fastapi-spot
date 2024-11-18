@@ -9,9 +9,9 @@ import json
 import os
 
 DBHOST = "ds2022.cqee4iwdcaph.us-east-1.rds.amazonaws.com"
-DBUSER = "admin"
+DBUSER = "ds2022"
 DBPASS = os.getenv('DBPASS')
-DB = "nem2p"
+DB = "vxm2ek"
 
 db = mysql.connector.connect(user=DBUSER, host=DBHOST, password=DBPASS, database=DB)
 cur=db.cursor()
