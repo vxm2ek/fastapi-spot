@@ -9,7 +9,7 @@ import json
 import os
 
 DBHOST = "ds2022.cqee4iwdcaph.us-east-1.rds.amazonaws.com"
-DBUSER = "ds2022"
+DBUSER = "admin"
 DBPASS = os.getenv('DBPASS')
 DB = "vxm2ek"
 
