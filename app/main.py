@@ -32,6 +32,9 @@ def zone_apex():
 
 @app.get('/genres')
 def get_genres():
+    db = mysql.connector.connect(user=DBUSER, host=DBHOST, password=DBPASS, database=DB)
+    cur=db.cursor()
+    
     query = "SELECT * FROM genres ORDER BY genreid;"
     try:    
         cur.execute(query)
@@ -44,9 +47,14 @@ def get_genres():
     except Error as e:
         print("MySQL Error: ", str(e))
         return None
+    cur.close
+    db.close
 
 @app.get('/songs')
 def get_genres():
+    db = mysql.connector.connect(user=DBUSER, host=DBHOST, password=DBPASS, database=DB)
+    cur=db.cursor()
+    
     query = "SELECT songs.title, songs.album, songs.artist, songs.year, songs.file, songs.image, genres.genre FROM songs JOIN genres WHERE songs.genre = genres.genreid;"
     try:    
         cur.execute(query)
@@ -59,3 +67,5 @@ def get_genres():
     except Error as e:
         print("MySQL Error: ", str(e))
         return None
+    cur.close
+    db.close
